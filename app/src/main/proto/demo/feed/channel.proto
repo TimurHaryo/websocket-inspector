@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package demo.feed;
+
+import "demo/feed/ping.proto";
+import "demo/feed/quote.proto";
+
+option java_package = "com.example.websocketinspector.proto";
+option java_multiple_files = true;
+
+message SubscribeRequest {
+  string client_id = 1;
+  Channel channel = 2;
+  PingRequest ping = 3;
+}
+
+message Channel {
+  repeated string quotes = 1;
+}
+
+message ChannelMessage {
+  oneof payload {
+    Quote quote = 1;
+  }
+}

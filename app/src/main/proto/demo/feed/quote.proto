@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package demo.feed;
+
+option java_package = "com.example.websocketinspector.proto";
+option java_multiple_files = true;
+
+message Quote {
+  string symbol = 1;
+  double price = 2;
+  double volume = 3;
+  int64 timestamp = 4;
+}
